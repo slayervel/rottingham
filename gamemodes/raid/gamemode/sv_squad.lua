@@ -16,7 +16,7 @@ function GM:StartRaid()
 
 	self.SquadState = STATE_ACTIVE
 
-	local enemyType = table.Random( self.EnemyTypes )
+	local enemyType = table.Random( {"Custom", "CCA", "COTA", "Zombies"} )
 
 	local location = table.Random( self.Arenas )
 
@@ -131,7 +131,7 @@ function GM:PopulateLocation( location, dangerLevel, enemyType ) -- spawning npc
 
 	local weightedEnemies = {};
 
-	for k, v in pairs( enemyType ) do
+	for k, v in pairs( self.EnemyTypes[enemyType] ) do
 
 		for i = 1, v["Weight"] do
 
