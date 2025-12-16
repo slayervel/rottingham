@@ -241,11 +241,27 @@ function GM:PopulateLocation( location, dangerLevel, enemyType ) -- spawning npc
 
 				end
 
-				if( v["CustomModel"] ) then
+				if ( v["CustomModel"] ) then
 
-					npc:SetModel( v["CustomModel"] )
+					if ( istable( v["CustomModel"] ) ) then
+						local data = v["CustomModel"]
+        
+						npc:SetModel( data.Model )
+        
+						if ( data.Skin ) then 
+							npc:SetSkin( data.Skin ) 
+						end
+        
+						if ( data.Bodygroups ) then
+							for bgID, bgVal in pairs( data.Bodygroups ) do
+							npc:SetBodygroup( bgID, bgVal )
+							end
+						end
+					else
+						npc:SetModel( v["CustomModel"] )
+					end
 
-				end
+end
 
 				if( v["HealthScale"] ) then
 

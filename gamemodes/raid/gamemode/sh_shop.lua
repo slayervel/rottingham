@@ -6,6 +6,8 @@ GM.Shop = {
 		{ ".357", "weapon_357", 40 },
 		{ "Medkit", "weapon_medkit", 75 },
 		{ "Crossbow", "weapon_crossbow", 75 },
+		{ "Gravgun", "weapon_physcannon", 30 },
+		{ "MP5", "weapon_raid_smg" , 20},
 		{ "AR2", "weapon_ar2", 100 },
 		{ "RPG", "weapon_rpg", 100 },
 		{ "Grenade", "weapon_frag", 10, true },
@@ -39,6 +41,7 @@ GM.Weapons = { -- second value is the danger level increase for each weapon
 	{ "weapon_357", 0.25 },
 	{ "weapon_medkit", 0.25 },
 	{ "weapon_crossbow", 0.25 },
+	{ "weapon_raid_smg" , 0.1},
 	{ "weapon_ar2", 0.25 },
 	{ "weapon_rpg", 0.25 },
 	{ "weapon_frag", 0.25 },
@@ -52,6 +55,7 @@ GM.Weapons = { -- second value is the danger level increase for each weapon
 	{ "weapon_bfg_oicw", 0.75 },
 	{ "weapon_bfg_hl2_sniper", 0.75 },
 	{ "weapon_bfg_hl2_annabelle", 0.35 },
+	{ "weapon_stunstick", 0.5},
 };
 
 GM.RebelModels = {

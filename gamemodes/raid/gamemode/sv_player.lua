@@ -1,29 +1,45 @@
 function GM:PlayerLoadout( ply )
 
-	ply:Give( "weapon_crowbar" )
+	ply:Give( "weapon_stunstick" )
 
 end
 
 local function SpawnUpdateClient( ply )
 
-	local mdls = {
-		"models/player/urban.mdl",
-		"models/player/swat.mdl",
-		"models/player/riot.mdl",
-		"models/player/gasmask.mdl",
-	};
+    local modelData = {
+        mdl = "models/liver_failure/arrythmian/arrythmian.mdl",
+        skin = 20,
+        bodygroups = {
+            [0] = 0,  -- Head
+            [1] = 2,  -- Pants
+            [2] = 12, -- Torso
+            [3] = 27, -- Headgear
+            [4] = 0,  -- Bandanna
+            [5] = 0,  -- Mask
+            [6] = 0,  -- Hat Mask
+            [7] = 0,  -- Fullmask
+            [8] = 8,  -- Eyes
+            [9] = 2   -- Hands
+        }
+    }
 
-	ply:SetModel( table.Random( mdls ) )
+    ply:SetModel( modelData.mdl )
 
-	ply:SetTeam( 1 )
-	ply:SetNoCollideWithTeammates( true )
+    ply:SetSkin( modelData.skin )
 
-	net.Start( "nUpdateRaidStart" );
-		net.WriteUInt( GAMEMODE.ForceRaidEnd, 16 );
-		net.WriteUInt( GAMEMODE.SquadState, 4 )
-	net.Send( ply );
+    for id, val in pairs( modelData.bodygroups ) do
+        ply:SetBodygroup( id, val )
+    end
 
-	GAMEMODE:GiveMoney( ply, 0 ) -- to ensure they get money on initial spawn
+    ply:SetTeam( 1 )
+    ply:SetNoCollideWithTeammates( true )
+
+    net.Start( "nUpdateRaidStart" );
+        net.WriteUInt( GAMEMODE.ForceRaidEnd, 16 );
+        net.WriteUInt( GAMEMODE.SquadState, 4 )
+    net.Send( ply );
+
+    GAMEMODE:GiveMoney( ply, 0 ) 
 
 end
 hook.Add( "PlayerSpawn", "Spawn_Client_Update", SpawnUpdateClient )
