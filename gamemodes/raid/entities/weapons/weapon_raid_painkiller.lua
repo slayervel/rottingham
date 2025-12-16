@@ -70,5 +70,36 @@ function SWEP:CanSecondaryAttack()
 end
 
 function SWEP:SecondaryAttack()
- 
+	return false
+end
+
+function SWEP:Think()
+
+    if ( self.Owner:KeyDown( IN_ATTACK2 ) ) then
+        if ( !self:GetNWBool( "Ironsights" ) ) then
+            self:SetNWBool( "Ironsights", true )
+        end
+    else
+        if ( self:GetNWBool( "Ironsights" ) ) then
+            self:SetNWBool( "Ironsights", false )
+        end
+    end
+    
+    if ( self.BaseClass.Think ) then self.BaseClass.Think( self ) end
+end
+
+function SWEP:TranslateFOV( current_fov )
+    
+    local targetFOV = current_fov
+    if ( self:GetNWBool( "Ironsights" ) ) then
+        targetFOV = 60
+    end
+
+    if ( !self.CurrentFOV ) then 
+        self.CurrentFOV = current_fov 
+    end
+
+    self.CurrentFOV = Lerp( FrameTime() * 5, self.CurrentFOV, targetFOV )
+
+    return self.CurrentFOV
 end

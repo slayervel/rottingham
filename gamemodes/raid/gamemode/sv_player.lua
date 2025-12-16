@@ -8,6 +8,14 @@ local mobsterSounds = {
 	"placenta/speech/mobster5.wav"
 }
 
+local hurtSounds = {
+    "placenta/pain/mobster1.wav",
+    "placenta/pain/mobster2.wav",
+    "placenta/pain/mobster3.wav",
+    "placenta/pain/mobster4.wav"
+}
+
+
 local specificModelSounds = {
     ["models/sligwolf/rustyer/player/rustyer.mdl"] = "npc/combine_soldier/vo/on2.wav",
 }
@@ -47,6 +55,9 @@ local function SpawnUpdateClient( ply )
 
     ply:SetTeam( 1 )
     ply:SetNoCollideWithTeammates( true )
+
+	ply:SetWalkSpeed(160)
+	ply:SetRunSpeed(250)
 
     net.Start( "nUpdateRaidStart" );
         net.WriteUInt( GAMEMODE.ForceRaidEnd, 16 );
@@ -158,7 +169,7 @@ function GM:DoPlayerDeath( ply, attacker, inf )
 
 	ply.Money = ply.Money * 0.5
 
-	attacker:EmitSound("placenta/pain/mobster1.wav", 75, math.random(90, 110));
+	attacker:EmitSound("placenta/death/mobster2.wav", 75, math.random(90, 110));
 	net.Start( "nUpdateMoney" );
 		net.WriteUInt( ply.Money, 32 );
 	net.Send( ply )
@@ -209,6 +220,11 @@ function GM:PlayerShouldTakeDamage(ply, attacker)
 end
 
 function GM:EntityTakeDamage(ent, dmg)
+	
+	if ( ent:IsPlayer()) then
+		local randomSound = table.Random( hurtSounds )
+        ent:EmitSound( randomSound, 75, math.random(90, 110));
+	end
 
 	if (ent:IsPlayer() and dmg:GetAttacker() and dmg:GetAttacker():IsValid() and dmg:GetAttacker():IsPlayer() ) then
 

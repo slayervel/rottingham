@@ -55,7 +55,7 @@ end
 
 function ENT:HUDFunc( y )
 
-	draw.SimpleTextOutlined( "Raid Store", "ChatFont", ScrW() / 2, y, Color( 50, 50, 200, 200 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color( 0, 0, 0, 255 ) );
+	draw.SimpleTextOutlined( "Capitalist Contraption", "TargetIDSmall", ScrW() / 2, y, Color( 50, 50, 200, 200 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color( 0, 0, 0, 255 ) );
 	y = y + 15
 
 end
