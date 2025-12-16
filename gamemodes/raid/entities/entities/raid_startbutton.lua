@@ -52,7 +52,7 @@ function ENT:Use( ply ) -- begin the raid!
 
 		self.Starting = true
 
-		self:EmitSound("buttons/button9.wav", 75, math.random(90, 110));
+		self:EmitSound("kidneydagger/radio.wav", 75, math.random(90, 110));
 
 		timer.Simple(1, function()
 
@@ -67,7 +67,7 @@ function ENT:Use( ply ) -- begin the raid!
 
 	elseif( GAMEMODE.SquadState == STATE_IDLE ) then -- please don't spam the button :(
 
-		self:EmitSound( "ambient/alarms/klaxon1.wav", 60 );
+		self:EmitSound("placenta/ui/cross_unhover.wav", 75, math.random(90, 110));
 
 	end
 		

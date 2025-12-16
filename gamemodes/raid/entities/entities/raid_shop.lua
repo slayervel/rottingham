@@ -66,6 +66,9 @@ if( CLIENT ) then
 
 		local ply = LocalPlayer()
 
+		ply:EmitSound("placenta/coinkeeper1.wav", 75, math.random(90, 110));
+
+
 		if( !ply.Money ) then
 
 			ply.Money = 0
@@ -127,7 +130,10 @@ if( CLIENT ) then
 				shopFrame.Button:SetPos( x, y );
 				shopFrame.Button:SetSize( 150, 25 );
 				function shopFrame.Button:DoClick()
-							
+					
+					ply:EmitSound("placenta/coinkeeper4.wav", 75, math.random(90, 110));
+
+
 					net.Start( "nPurchaseItem" );
 						net.WriteString( b[2] );
 						net.WriteUInt( b[3], 16 );
@@ -165,7 +171,7 @@ if( CLIENT ) then
 			end
 
 		end
-
+		
 	end
 	net.Receive( "nOpenStore", nOpenStore );
 

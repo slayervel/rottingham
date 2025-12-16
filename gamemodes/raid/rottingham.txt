@@ -2,4 +2,7 @@
 {
 	"title"		"Rottingham Simulator"
 	"base"		"base"
+	"maps"		"^rd_"
+	"category"	"pve"
+	"menusystem"	"1"
 }

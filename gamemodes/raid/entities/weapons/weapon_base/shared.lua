@@ -58,7 +58,6 @@ function SWEP:PrimaryAttack()
 
 	-- Remove 1 bullet from our clip
 	self:TakePrimaryAmmo( 1 )
-
 	-- Punch the player's view
 	if ( !self.Owner:IsNPC() ) then self.Owner:ViewPunch( Angle( -1, 0, 0 ) ) end
 

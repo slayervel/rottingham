@@ -1,3 +1,17 @@
+
+local mobsterSounds = {
+    "placenta/speech/mobster6.wav",
+    "placenta/speech/mobster7.wav",
+    "placenta/speech/mobster3.wav",
+    "placenta/speech/mobster1.wav",
+    "placenta/speech/mobster2.wav",
+	"placenta/speech/mobster5.wav"
+}
+
+local specificModelSounds = {
+    ["models/sligwolf/rustyer/player/rustyer.mdl"] = "npc/combine_soldier/vo/on2.wav",
+}
+
 function GM:PlayerLoadout( ply )
 
 	ply:Give( "weapon_stunstick" )
@@ -43,6 +57,29 @@ local function SpawnUpdateClient( ply )
 
 end
 hook.Add( "PlayerSpawn", "Spawn_Client_Update", SpawnUpdateClient )
+
+hook.Add( "PlayerSay", "EmitModelChatSound", function( ply, text, team )
+    local myModel = ply:GetModel()
+
+	if ( string.find( text, "hog" ) ) then
+        ply:EmitSound( "placenta/boom.wav", 75, 100, 1 )
+	end
+
+    -- Check if this model exists in  table
+    if ( specificModelSounds[ myModel ] ) then
+        
+        ply:EmitSound( specificModelSounds[ myModel ], 75, 100, 1 )
+
+    else
+        
+        local randomSound = table.Random( mobsterSounds )
+        ply:EmitSound( randomSound, 75, 100, 1 )
+
+    end
+
+    return text
+
+end )
 
 function GM:GiveMoney( ply, amt )
 
@@ -102,7 +139,7 @@ end
 function GM:DoPlayerDeath( ply, attacker, inf )
 
 	if( attacker:IsPlayer() and attacker:IsValid() and attacker != ply ) then
-
+		attacker:EmitSound("kidneydagger/deadkommandant.ogg", 75, math.random(90, 110));
 		attacker.Money = attacker.Money * 0
 		attacker:ChatPrint( "You killed " .. ply:Nick() .. "! That's terrible!!")
 
@@ -121,6 +158,7 @@ function GM:DoPlayerDeath( ply, attacker, inf )
 
 	ply.Money = ply.Money * 0.5
 
+	attacker:EmitSound("placenta/pain/mobster1.wav", 75, math.random(90, 110));
 	net.Start( "nUpdateMoney" );
 		net.WriteUInt( ply.Money, 32 );
 	net.Send( ply )
@@ -143,7 +181,6 @@ end
 
 GM.BannedWeaponPickups = {
 	--"weapon_crowbar",
-	"weapon_stunstick",
 	"weapon_pistol",
 	"weapon_smg1",
 	"weapon_ar2",

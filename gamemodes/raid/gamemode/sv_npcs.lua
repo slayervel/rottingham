@@ -43,7 +43,7 @@ GM.EnemyTypes = {
         },
         ["soldier_shotgun"] = {
             ["NPC"] = "raidman",
-            ["Models"] = {"models/combine_super_soldier_mi.mdl", "models/sligwolf/rustyer/player/rustyer.mdl"},
+            ["Models"] = {"models/combine_super_soldier_mi.mdl", "models/sligwolf/rustyer/combine/rustyer_combine.mdl"},
             ["Weight"] = 3,
             ["Price"] = 1.5,
             ["Reward"] = 50,
@@ -182,7 +182,7 @@ GM.EnemyTypes = {
             ["Weight"] = 2,
             ["Price"] = 1.5,
             ["Reward"] = 23,
-            ["CustomModel"] = "models/combine_super_soldier_mi.mdl",
+            ["CustomModel"] = "models/sligwolf/rustyer/combine/rustyer_combine.mdl",
             ["DamageScale"] = 1.6,
             ["HealthScale"] = 2,
             ["Grenades"] = 3,

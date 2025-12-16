@@ -1,7 +1,7 @@
 
 -- Variables that are used on both client and server
 
-SWEP.PrintName		= "Owler" -- 'Nice' Weapon name (Shown on HUD)
+SWEP.PrintName		= "City Of Fear" -- 'Nice' Weapon name (Shown on HUD)
 SWEP.Author			= ""
 SWEP.Contact		= ""
 SWEP.Purpose		= ""
@@ -9,24 +9,24 @@ SWEP.Instructions	= ""
 
 SWEP.ViewModelFOV	= 62
 SWEP.ViewModelFlip	= false
-SWEP.ViewModel		= "models/tnb/weapons/c_skorpion.mdl"
+SWEP.ViewModel		= "models/tnb/weapons/c_mp5.mdl"
 SWEP.UseHands = true
-SWEP.WorldModel		= "models/tnb/weapons/w_skorpion.mdl"
-SWEP.HoldType		= "ar2"
+SWEP.WorldModel		= "models/tnb/weapons/w_mp5.mdl"
+SWEP.HoldType		= "smg"
 
 SWEP.Spawnable		= false
 SWEP.AdminOnly		= false
 
-SWEP.Primary.ClipSize		= 20			-- Size of a clip
-SWEP.Primary.DefaultClip	= 20		-- Default number of bullets in a clip
+SWEP.Primary.ClipSize		= 30			-- Size of a clip
+SWEP.Primary.DefaultClip	= 30		-- Default number of bullets in a clip
 SWEP.Primary.Automatic		= true		-- Automatic/Semi Auto
 SWEP.Primary.Ammo			= "SMG1"
-SWEP.Primary.Damage			= 15
-SWEP.Primary.Sound			= "tekka/weapons/weapon_mp40.wav"
-SWEP.Primary.Delay			= 0.1
+SWEP.Primary.Damage			= 13
+SWEP.Primary.Sound			= "tekka/weapons/weapon_mp7.wav"
+SWEP.Primary.Delay			= 0.07
 SWEP.Primary.NumBullets		= 1
 SWEP.Primary.Accuracy		= 0.3
-SWEP.Primary.Aimcone		= 0.02
+SWEP.Primary.Aimcone		= 0.03
 
 
 SWEP.Secondary.ClipSize		= -1
