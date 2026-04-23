@@ -1,4 +1,3 @@
-
 -- Variables that are used on both client and server
 
 SWEP.PrintName		= "Shotgun" -- 'Nice' Weapon name (Shown on HUD)

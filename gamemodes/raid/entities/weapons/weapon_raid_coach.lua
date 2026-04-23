@@ -5,7 +5,7 @@ SWEP.PrintName		= "Coach" -- 'Nice' Weapon name (Shown on HUD)
 SWEP.Author			= ""
 SWEP.Contact		= ""
 SWEP.Purpose		= ""
-SWEP.Instructions	= ""
+SWEP.Instructions	= "The favorite of Gangrene's Sanitar squad. "
 
 SWEP.ViewModelFOV	= 62
 SWEP.ViewModelFlip	= false
@@ -13,6 +13,7 @@ SWEP.ViewModel		= "models/weapons/c_coach.mdl"
 SWEP.UseHands 		= true
 SWEP.WorldModel		= "models/weapons/w_coach.mdl"
 SWEP.HoldType		= "shotgun"
+SWEP.Slot   		= 3
 
 SWEP.Spawnable		= false
 SWEP.AdminOnly		= false
@@ -59,7 +60,7 @@ function SWEP:PrimaryAttack()
 	self:TakePrimaryAmmo( 1 )
 	self:SetNextPrimaryFire( CurTime() + self.Primary.Delay )
 	-- Punch the player's view
-	if ( !self.Owner:IsNPC() ) then self.Owner:ViewPunch( Angle( -1, 0, 0 ) ) end
+	if ( !self.Owner:IsNPC() ) then self.Owner:ViewPunch( Angle( -6, 0, 0 ) ) end
 
 end
 

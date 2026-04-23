@@ -1,33 +1,34 @@
 
 -- Variables that are used on both client and server
 
-SWEP.PrintName		= "City Of Fear" -- 'Nice' Weapon name (Shown on HUD)
+SWEP.PrintName		= "Owler" -- 'Nice' Weapon name (Shown on HUD)
 SWEP.Author			= ""
 SWEP.Contact		= ""
 SWEP.Purpose		= ""
-SWEP.Instructions	= "The weapon of many low ranking mobsters."
+SWEP.Instructions	= "A cheap piece of shit submachine gun."
+
 
 SWEP.ViewModelFOV	= 62
 SWEP.ViewModelFlip	= false
-SWEP.ViewModel		= "models/tnb/weapons/c_mp5.mdl"
+SWEP.ViewModel		= "models/tnb/weapons/c_skorpion.mdl"
 SWEP.UseHands = true
-SWEP.WorldModel		= "models/tnb/weapons/w_mp5.mdl"
-SWEP.HoldType		= "smg"
+SWEP.WorldModel		= "models/tnb/weapons/w_skorpion.mdl"
+SWEP.HoldType		= "ar2"
 SWEP.Slot   		= 2
 
 SWEP.Spawnable		= false
 SWEP.AdminOnly		= false
 
-SWEP.Primary.ClipSize		= 30			-- Size of a clip
-SWEP.Primary.DefaultClip	= 30		-- Default number of bullets in a clip
+SWEP.Primary.ClipSize		= 20			-- Size of a clip
+SWEP.Primary.DefaultClip	= 20		-- Default number of bullets in a clip
 SWEP.Primary.Automatic		= true		-- Automatic/Semi Auto
 SWEP.Primary.Ammo			= "SMG1"
-SWEP.Primary.Damage			= 13
-SWEP.Primary.Sound			= "tekka/weapons/weapon_mp7.wav"
-SWEP.Primary.Delay			= 0.09
+SWEP.Primary.Damage			= 15
+SWEP.Primary.Sound			= "tekka/weapons/weapon_mp40.wav"
+SWEP.Primary.Delay			= 0.1
 SWEP.Primary.NumBullets		= 1
 SWEP.Primary.Accuracy		= 0.3
-SWEP.Primary.Aimcone		= 0.03
+SWEP.Primary.Aimcone		= 0.02
 
 
 SWEP.Secondary.ClipSize		= -1
@@ -71,36 +72,5 @@ function SWEP:CanSecondaryAttack()
 end
 
 function SWEP:SecondaryAttack()
-	return false
-end
-
-function SWEP:Think()
-
-    if ( self.Owner:KeyDown( IN_ATTACK2 ) ) then
-        if ( !self:GetNWBool( "Ironsights" ) ) then
-            self:SetNWBool( "Ironsights", true )
-        end
-    else
-        if ( self:GetNWBool( "Ironsights" ) ) then
-            self:SetNWBool( "Ironsights", false )
-        end
-    end
-    
-    if ( self.BaseClass.Think ) then self.BaseClass.Think( self ) end
-end
-
-function SWEP:TranslateFOV( current_fov )
-    
-    local targetFOV = current_fov
-    if ( self:GetNWBool( "Ironsights" ) ) then
-        targetFOV = 58
-    end
-
-    if ( !self.CurrentFOV ) then 
-        self.CurrentFOV = current_fov 
-    end
-
-    self.CurrentFOV = Lerp( FrameTime() * 5, self.CurrentFOV, targetFOV )
-
-    return self.CurrentFOV
+ 
 end

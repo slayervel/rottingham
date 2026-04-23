@@ -1,34 +1,33 @@
 
 -- Variables that are used on both client and server
 
-SWEP.PrintName		= "Painkiller" -- 'Nice' Weapon name (Shown on HUD)
+SWEP.PrintName		= "Son Of Liberty" -- 'Nice' Weapon name (Shown on HUD)
 SWEP.Author			= ""
 SWEP.Contact		= ""
 SWEP.Purpose		= ""
-SWEP.Instructions	= "A small self-defense revolver, still packs a small punch."
+SWEP.Instructions	= "A REAL rottish rifle."
 
 SWEP.ViewModelFOV	= 62
 SWEP.ViewModelFlip	= false
-SWEP.ViewModel		= "models/weapons/c_painkiller.mdl"
+SWEP.ViewModel		= "models/tnb/weapons/c_m4.mdl"
 SWEP.UseHands = true
-SWEP.WorldModel		= "models/weapons/w_painkiller.mdl"
-SWEP.HoldType		= "pistol"
-SWEP.Slot   		= 1
+SWEP.WorldModel		= "models/tnb/weapons/w_m4.mdl"
+SWEP.HoldType		= "ar2"
+SWEP.Slot   		= 2
 
 SWEP.Spawnable		= false
 SWEP.AdminOnly		= false
 
-SWEP.Primary.ClipSize		= 6			-- Size of a clip
-SWEP.Primary.DefaultClip	= 6		-- Default number of bullets in a clip
-SWEP.Primary.Automatic		= false		-- Automatic/Semi Auto
-SWEP.Primary.Ammo			= "pistol"
-SWEP.Primary.Damage			= 35
-SWEP.Primary.Sound			= "tekka/weapons/weapon_pistolcrack.wav"
-SWEP.Primary.Delay			= 0.4
+SWEP.Primary.ClipSize		= 25			-- Size of a clip
+SWEP.Primary.DefaultClip	= 25		-- Default number of bullets in a clip
+SWEP.Primary.Automatic		= true 		-- Automatic/Semi Auto
+SWEP.Primary.Ammo			= "ar2"
+SWEP.Primary.Damage			= 45
+SWEP.Primary.Sound			= "tekka/weapons/weapon_m4.wav"
+SWEP.Primary.Delay			= 0.2
 SWEP.Primary.NumBullets		= 1
-SWEP.Primary.Accuracy		= 0.1
+SWEP.Primary.Accuracy		= 0.2
 SWEP.Primary.Aimcone		= 0.01
-
 
 SWEP.Secondary.ClipSize		= -1
 SWEP.Secondary.DefaultClip	= -1
@@ -61,7 +60,7 @@ function SWEP:PrimaryAttack()
 	self:TakePrimaryAmmo( 1 )
 	self:SetNextPrimaryFire( CurTime() + self.Primary.Delay )
 	-- Punch the player's view
-	if ( !self.Owner:IsNPC() ) then self.Owner:ViewPunch( Angle( -2, 0, 0 ) ) end
+	if ( !self.Owner:IsNPC() ) then self.Owner:ViewPunch( Angle( -4, 0, 0 ) ) end
 
 end
 
@@ -93,14 +92,14 @@ function SWEP:TranslateFOV( current_fov )
     
     local targetFOV = current_fov
     if ( self:GetNWBool( "Ironsights" ) ) then
-        targetFOV = 60
+        targetFOV = 55
     end
 
     if ( !self.CurrentFOV ) then 
         self.CurrentFOV = current_fov 
     end
 
-    self.CurrentFOV = Lerp( FrameTime() * 5, self.CurrentFOV, targetFOV )
+    self.CurrentFOV = Lerp( FrameTime() * 10, self.CurrentFOV, targetFOV )
 
     return self.CurrentFOV
 end

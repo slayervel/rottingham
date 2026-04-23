@@ -5,7 +5,7 @@ SWEP.PrintName		= "Sauer-Kraut" -- 'Nice' Weapon name (Shown on HUD)
 SWEP.Author			= ""
 SWEP.Contact		= ""
 SWEP.Purpose		= ""
-SWEP.Instructions	= ""
+SWEP.Instructions	= "A rifle taken from the gangrals, what a terrible rifle."
 
 SWEP.ViewModelFOV	= 62
 SWEP.ViewModelFlip	= false
@@ -13,6 +13,7 @@ SWEP.ViewModel		= "models/tnb/weapons/c_stg44.mdl"
 SWEP.UseHands = true
 SWEP.WorldModel		= "models/tnb/weapons/w_stg44.mdl"
 SWEP.HoldType		= "ar2"
+SWEP.Slot   		= 2
 
 SWEP.Spawnable		= false
 SWEP.AdminOnly		= false
@@ -26,8 +27,7 @@ SWEP.Primary.Sound			= "tekka/weapons/weapon_aks.wav"
 SWEP.Primary.Delay			= 0.1
 SWEP.Primary.NumBullets		= 1
 SWEP.Primary.Accuracy		= 0.3
-SWEP.Primary.Aimcone		= 0.02
-
+SWEP.Primary.Aimcone		= 0.03
 
 SWEP.Secondary.ClipSize		= -1
 SWEP.Secondary.DefaultClip	= -1
@@ -60,7 +60,7 @@ function SWEP:PrimaryAttack()
 	self:TakePrimaryAmmo( 1 )
 	self:SetNextPrimaryFire( CurTime() + self.Primary.Delay )
 	-- Punch the player's view
-	if ( !self.Owner:IsNPC() ) then self.Owner:ViewPunch( Angle( -1, 0, 0 ) ) end
+	if ( !self.Owner:IsNPC() ) then self.Owner:ViewPunch( Angle( -3, 0, 0 ) ) end
 
 end
 

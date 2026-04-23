@@ -5,7 +5,7 @@ SWEP.PrintName		= "Lubov" -- 'Nice' Weapon name (Shown on HUD)
 SWEP.Author			= ""
 SWEP.Contact		= ""
 SWEP.Purpose		= ""
-SWEP.Instructions	= ""
+SWEP.Instructions	= "A favorite of many cultists, a rarity. "
 
 SWEP.ViewModelFOV	= 62
 SWEP.ViewModelFlip	= false
@@ -13,6 +13,7 @@ SWEP.ViewModel		= "models/tnb/weapons/c_saiga12.mdl"
 SWEP.UseHands 		= true
 SWEP.WorldModel		= "models/tnb/weapons/w_saiga12.mdl"
 SWEP.HoldType		= "shotgun"
+SWEP.Slot   		= 3
 
 SWEP.Spawnable		= false
 SWEP.AdminOnly		= false
@@ -21,7 +22,7 @@ SWEP.Primary.ClipSize		= 12			-- Size of a clip
 SWEP.Primary.DefaultClip	= 12		-- Default number of bullets in a clip
 SWEP.Primary.Automatic		= true		-- Automatic/Semi Auto
 SWEP.Primary.Ammo			= "Buckshot"
-SWEP.Primary.Damage			= 5
+SWEP.Primary.Damage			= 7
 SWEP.Primary.Sound			= "tekka/weapons/weapon_shotgunblast.wav"
 SWEP.Primary.Delay			= 0.3
 SWEP.Primary.NumBullets		= 6
@@ -59,7 +60,7 @@ function SWEP:PrimaryAttack()
 	self:TakePrimaryAmmo( 1 )
 	self:SetNextPrimaryFire( CurTime() + self.Primary.Delay )
 	-- Punch the player's view
-	if ( !self.Owner:IsNPC() ) then self.Owner:ViewPunch( Angle( -1, 0, 0 ) ) end
+	if ( !self.Owner:IsNPC() ) then self.Owner:ViewPunch( Angle( -4, 0, 0 ) ) end
 
 end
 
@@ -69,7 +70,7 @@ function SWEP:SecondaryAttack()
 
 	self:EmitSound("Weapon_Shotgun.Single")
 
-	self:ShootBullet( 150, 1, 0.025, self.Secondary.Ammo )
+	self:ShootBullet( 75, 1, 0.025, self.Secondary.Ammo )
 
 	-- Remove 1 bullet from our clip
 	self:TakeSecondaryAmmo( 1 )

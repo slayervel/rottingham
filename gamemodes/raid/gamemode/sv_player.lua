@@ -1,18 +1,21 @@
 
 local mobsterSounds = {
+	"placenta/speech/dealer1.wav",
     "placenta/speech/mobster6.wav",
+	"placenta/speech/dealer1.wav",
     "placenta/speech/mobster7.wav",
+	"placenta/speech/dealer3.wav",
     "placenta/speech/mobster3.wav",
-    "placenta/speech/mobster1.wav",
-    "placenta/speech/mobster2.wav",
-	"placenta/speech/mobster5.wav"
+	"placenta/speech/dealer2.wav",
 }
 
 local hurtSounds = {
-    "placenta/pain/mobster1.wav",
+	"vo/ravenholm/monk_pain07.wav",
     "placenta/pain/mobster2.wav",
+	"vo/ravenholm/monk_pain12.wav",
     "placenta/pain/mobster3.wav",
-    "placenta/pain/mobster4.wav"
+	"vo/ravenholm/monk_pain08.wav",
+	
 }
 
 
@@ -38,7 +41,7 @@ local function SpawnUpdateClient( ply )
             [3] = 27, -- Headgear
             [4] = 0,  -- Bandanna
             [5] = 0,  -- Mask
-            [6] = 0,  -- Hat Mask
+            [6] = 8,  -- Hat Mask
             [7] = 0,  -- Fullmask
             [8] = 8,  -- Eyes
             [9] = 2   -- Hands
@@ -169,7 +172,7 @@ function GM:DoPlayerDeath( ply, attacker, inf )
 
 	ply.Money = ply.Money * 0.5
 
-	attacker:EmitSound("placenta/death/mobster2.wav", 75, math.random(90, 110));
+	attacker:EmitSound("vo/ravenholm/monk_death07.wav", 75, 100, 1);
 	net.Start( "nUpdateMoney" );
 		net.WriteUInt( ply.Money, 32 );
 	net.Send( ply )

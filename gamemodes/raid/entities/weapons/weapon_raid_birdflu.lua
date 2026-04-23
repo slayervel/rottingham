@@ -5,7 +5,7 @@ SWEP.PrintName		= "Bird Flu" -- 'Nice' Weapon name (Shown on HUD)
 SWEP.Author			= ""
 SWEP.Contact		= ""
 SWEP.Purpose		= ""
-SWEP.Instructions	= ""
+SWEP.Instructions	= "A pistol that fires a big bullet, what more could you need."
 
 SWEP.ViewModelFOV	= 62
 SWEP.ViewModelFlip	= false
@@ -13,15 +13,16 @@ SWEP.ViewModel		= "models/tnb/weapons/c_deserteagle.mdl"
 SWEP.UseHands = true
 SWEP.WorldModel		= "models/tnb/weapons/w_deserteagle.mdl"
 SWEP.HoldType		= "pistol"
+SWEP.Slot   		= 1
 
 SWEP.Spawnable		= false
 SWEP.AdminOnly		= false
 
-SWEP.Primary.ClipSize		= 6			-- Size of a clip
-SWEP.Primary.DefaultClip	= 6		-- Default number of bullets in a clip
+SWEP.Primary.ClipSize		= 7		-- Size of a clip
+SWEP.Primary.DefaultClip	= 7		-- Default number of bullets in a clip
 SWEP.Primary.Automatic		= false		-- Automatic/Semi Auto
 SWEP.Primary.Ammo			= "357"
-SWEP.Primary.Damage			= 80
+SWEP.Primary.Damage			= 50
 SWEP.Primary.Sound			= "tekka/weapons/weapon_m24.wav"
 SWEP.Primary.Delay			= 0.1
 SWEP.Primary.NumBullets		= 1

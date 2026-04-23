@@ -5,7 +5,7 @@ SWEP.PrintName		= "Arrythmian Hosepipe" -- 'Nice' Weapon name (Shown on HUD)
 SWEP.Author			= ""
 SWEP.Contact		= ""
 SWEP.Purpose		= ""
-SWEP.Instructions	= ""
+SWEP.Instructions	= "A rottish caporegime's favorite weapon, they would never leave home without it."
 
 SWEP.ViewModelFOV	= 62
 SWEP.ViewModelFlip	= false
@@ -13,15 +13,16 @@ SWEP.ViewModel		= "models/tnb/weapons/c_thompson.mdl"
 SWEP.UseHands = true
 SWEP.WorldModel		= "models/tnb/weapons/w_thompson.mdl"
 SWEP.HoldType		= "smg"
+SWEP.Slot   		= 2
 
 SWEP.Spawnable		= false
 SWEP.AdminOnly		= false
 
-SWEP.Primary.ClipSize		= 25			-- Size of a clip
-SWEP.Primary.DefaultClip	= 25		-- Default number of bullets in a clip
+SWEP.Primary.ClipSize		= 40		-- Size of a clip
+SWEP.Primary.DefaultClip	= 40		-- Default number of bullets in a clip
 SWEP.Primary.Automatic		= true		-- Automatic/Semi Auto
 SWEP.Primary.Ammo			= "SMG1"
-SWEP.Primary.Damage			= 20
+SWEP.Primary.Damage			= 15
 SWEP.Primary.Sound			= "tekka/weapons/weapon_blat.wav"
 SWEP.Primary.Delay			= 0.1
 SWEP.Primary.NumBullets		= 1
@@ -60,7 +61,7 @@ function SWEP:PrimaryAttack()
 	self:TakePrimaryAmmo( 1 )
 	self:SetNextPrimaryFire( CurTime() + self.Primary.Delay )
 	-- Punch the player's view
-	if ( !self.Owner:IsNPC() ) then self.Owner:ViewPunch( Angle( -1, 0, 0 ) ) end
+	if ( !self.Owner:IsNPC() ) then self.Owner:ViewPunch( Angle( -2, 0, 0 ) ) end
 
 end
 
